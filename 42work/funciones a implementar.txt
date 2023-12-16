@@ -1,0 +1,149 @@
+• isalpha *#
+DESCRIPCION
+La función ft_isalpha se utiliza para determinar si un carácter es una letra del alfabeto. En C, cada carácter se representa mediante un número entero que se corresponde con su valor ASCII.
+• isdigit*#
+DESCRIPCIONi
+La función ft_isdigit se utiliza para determinar si un carácter es un dígito decimal. En C, cada carácter se representa mediante un número entero que se corresponde con su valor ASCII. 
+• isalnum*
+• isascii *#
+DESCRIPCIÓN
+       Estas funciones comprueban si c, que debe tener el valor de un carácter o EOF sin signo, se encuentra en un determinado
+       de acuerdo con la configuración regional especificada.  Las funciones sin el sufijo "_l" realizan la comprobación
+       basado en la configuración regional actual.
+• isprint *
+• strlen *
+• memset*
+DESCRIPCIÓN
+La función escribe len bytes del valor c (convertido en un carácter sin signo) en la cadena b.
+• bzero*
+DESCRIPCIÓN
+La función bzero() escribe n bytes puestos a cero en la cadena s. Si n es cero, bzero() no hace nada.
+• memcpy*#
+DESCRIPCIÓN
+La función memcpy() copia n bytes del área de memoria src al área de memoria dst. Si dst y
+src, el comportamiento no está definido.
+Las aplicaciones en las que dst y src pueden superponerse deben usar memmove(3) en su lugar.
+• memmove*
+DESCRIPCIÓN
+La función memmove() copia len bytes de la cadena src a la cadena dst. Las dos cadenas pueden
+solapar; La copia siempre se hace en
+de una manera no destructiva.
+• strlcpy*#
+• strlcat *#
+Las funciones strlcpy() y strlcat() copian y concatenan cadenas con la misma entrada
+parámetros y el resultado de salida como
+snprintf(3). Están diseñados para ser más seguros, más consistentes y menos propensos a errores
+
+reemplazos de la función que se usa indebidamente
+Es decir, que la mayoría de las personas que se encuentran en el campo de la información son las siguientes: strncpy(3) y strncat(3).
+
+strlcpy() y strlcat() toman el tamaño completo del búfer de destino y garantizan NUL-
+Terminación si hay espacio. Tenga en cuenta que
+
+El espacio para el NUL debe incluirse en dstsize.
+strlcpy() copia hasta dstsize - 1 caracteres de la cadena src a dst, terminando NUL en el
+resultado si dstsize no es 0.
+strlcat() añade la cadena src al final de dst. Se agregará como máximo dstsize - strlen(dst) - 1
+Caracteres. A continuación,
+NUL-terminate, a menos que dstsize sea 0 o que la cadena dst original fuera más larga que dstsize (en
+práctica esto no debería suceder, ya que
+significa que dstsize es incorrecto o que dst no es una cadena adecuada).
+Si las cadenas src y dst se superponen, el comportamiento es indefinido.
+• toupper
+DESCRIPTION
+The toupper() function converts a lower-case letter to the corresponding upper-case letter.
+The argument must be representable
+as an unsigned char or the value of EOF.
+Although the toupper() function uses the current locale, the toupper_l() function may be
+passed a locale directly. See
+xlocale(3) for more information.
+• tolower *
+DESCRIPTION
+
+The tolower() function converts an upper-case letter to the corresponding lower-case letter.
+The argument must be representable as an unsigned
+char or the value of EOF.
+Although the tolower() function uses the current locale, the tolower_l() function may be
+
+passed a locale directly. See xlocale(3) for more infor-
+mation.
+
+• strchr *#
+DESCRIPCIÖn
+Esta función toma dos argumentos: s es la cadena de caracteres en la que se buscará el carácter, y c es el carácter que se buscará. La función devuelve un puntero a la posición del carácter en la cadena, o NULL si el carácter no se encuentra en la cadena.
+actualizacion
+La función ft_memchr busca la primera aparición de un carácter en una cadena de caracteres y devuelve un puntero a esa posición. La función ft_strchr utiliza ft_memchr para buscar el carácter en la cadena de caracteres str.La función ft_memchr utiliza la función ft_strchr para buscar la primera aparición de un carácter en una cadena de caracteres y devuelve un puntero a esa posición
+• strrchr*
+DESCRIPTION
+       The strchr() function returns a pointer  to  the
+       first  occurrence  of  the  character  c  in the
+       string s.
+
+       The strrchr() function returns a pointer to  the
+       last occurrence of the character c in the string
+       s.
+
+       The strchrnul() function is like strchr() except
+       that  if  c is not found in s, then it returns a
+       pointer to the null byte at the end of s, rather
+       than NULL.
+
+       Here  "character"  means "byte"; these functions
+       do not work with wide or multibyte characters.
+
+
+• strncmp*
+DESCRIPTION
+       The  strcmp()  function  compares  the two strings s1 and s2.  The locale is not taken
+       into account (for a locale-aware comparison, see strcoll(3)).  The comparison is  done
+       using unsigned characters.
+
+       strcmp() returns an integer indicating the result of the comparison, as follows:
+
+       • 0, if the s1 and s2 are equal;
+
+       • a negative value if s1 is less than s2;
+
+       • a positive value if s1 is greater than s2.
+
+       The strncmp() function is similar, except it compares only the first (at most) n bytes
+       of s1 and s2.
+
+• memchr*
+DESCRIPTION
+       The memchr() function scans the initial n bytes of the memory area pointed to by s for
+       the first instance of c.  Both c and the bytes of the memory area pointed to by s  are
+       interpreted as unsigned char.
+
+       La función ft_memchr utiliza la función ft_strchr para buscar la primera aparición de un carácter en una cadena de caracteres y devuelve un puntero a esa posición
+
+           char *p = rawmemchr(s, '\0');
+• memcmp*
+DESCRIPTION
+       The  memcmp()  function compares the first n bytes (each interpreted as unsigned char)
+       of the memory areas s1 and s2.
+Esta función compara dos bloques de memoria y devuelve un valor entero que indica si los bloques son iguales o diferentes.
+• strnstr//no existe
+. Esta función busca la primera aparición de una subcadena en una cadena de caracteres y devuelve un puntero a esa posición.
+Esta función busca la primera aparición de una subcadena en una cadena más grande y devuelve un puntero a la ubicación de la subcadena dentro de la cadena más grande. Si la subcadena no se encuentra en la cadena más grande, la función devuelve un puntero nulo
+DESCRIPTION
+     The strnstr() function locates the first occurrence of the null-terminated string little in the string big, where not more than len characters are searched.  Characters that appear after a '\\0' character are not searc
+
+• atoi*
+DESCRIPTION
+       The  atoi()  function converts the initial portion of the string pointed to by nptr to
+       int.  The behavior is the same as
+
+           strtol(nptr, NULL, 10);
+
+       except that atoi() does not detect errors.
+
+       The atol() and atoll() functions behave the same as atoi(), except that  they  convert
+       the initial portion of the string to their return type of long or long long.
+
+Para implementar estas otras dos funciones, tendrás que utilizar malloc():
+• calloc*#
+La función calloc toma dos argumentos: count y size. count es el número de elementos que deseas asignar, y size es el tamaño de cada elemento. La función calloc devuelve un puntero a la memoria asignada.
+• strdup*#
+La función s:wq
+trdup toma una cadena de caracteres como argumento y devuelve un puntero a una copia de la cadena. El código anterior utiliza malloc para asignar memoria para la copia de la cadena. Luego, utiliza memcpy para copiar la cadena original en la memoria asignada.

@@ -1,0 +1,70 @@
+Para crear una biblioteca en C, debes seguir los siguientes pasos:
+
+1. Crea un conjunto de funciones que quieres incluir en tu biblioteca.
+2. Crea un archivo de encabezado (`.h`) que contenga los prototipos de las funciones de tu biblioteca.
+3. Crea un archivo de código fuente (`.c`) para cada función de tu biblioteca.
+4. Compila cada archivo de código fuente en un archivo objeto (`.o`).
+5. Crea la biblioteca a partir de los archivos objeto utilizando el comando `ar`.
+6. Incluye el archivo de encabezado en cualquier programa que utilice las funciones de tu biblioteca.
+
+Aquí hay un ejemplo de cómo crear una biblioteca que incluya las funciones `ft_isalpha` y `ft_isdigit`:
+
+1. Crea un archivo de encabezado llamado `libft.h` con los siguientes prototipos de función:
+
+```c
+int ft_isalpha(int c);
+int ft_isdigit(int c);
+```
+
+2. Crea un archivo de código fuente llamado `ft_isalpha.c` con la siguiente implementación de la función `ft_isalpha`:
+
+```c
+int ft_isalpha(int c)
+{
+    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+        return (1);
+    else
+        return (0);
+}
+```
+
+3. Crea un archivo de código fuente llamado `ft_isdigit.c` con la siguiente implementación de la función `ft_isdigit`:
+
+```c
+int ft_isdigit(int c)
+{
+    if (c >= '0' && c <= '9')
+        return (1);
+    else
+        return (0);
+}
+```
+
+4. Compila cada archivo de código fuente en un archivo objeto utilizando el siguiente comando:
+
+```c
+gcc -c ft_isalpha.c ft_isdigit.c
+```
+
+5. Crea la biblioteca a partir de los archivos objeto utilizando el siguiente comando:
+
+```c
+ar rcs libft.a ft_isalpha.o ft_isdigit.o
+```
+
+6. Incluye el archivo de encabezado `libft.h` en cualquier programa que utilice las funciones de tu biblioteca:
+
+```c
+#include "libft.h"
+
+int main()
+{
+    char c = '5';
+
+    if (ft_isdigit(c))
+        printf("%c es un digito decimal\n", c);
+    else
+        printf("%c no es un digito decimal\n", c);
+
+    return 0;
+}
